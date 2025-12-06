@@ -87,3 +87,7 @@ GROUP BY category_name;
 UPDATE restaurant.orders
 SET status = 'CANCELLED'
 WHERE order_id = 5;
+
+-- Delete order
+DELETE FROM orders
+WHERE order_id = 5;
