@@ -21,8 +21,8 @@ END$$
 DELIMITER ;
 
 -- Test the function
-SELECT sf_can_cancel_order(8) AS can_cancel_order_8; -- should be 1 (true)
-SELECT sf_can_cancel_order(5) AS can_cancel_order_5; -- should be 0 (false)
+SELECT sf_can_cancel_order(7) AS can_cancel_order_7; -- should be 1 (true)
+SELECT sf_can_cancel_order(4) AS can_cancel_order_4; -- should be 0 (false)
 
 -- Procedure to mark order as delivered and timestamp it
 DROP PROCEDURE IF EXISTS sp_mark_order_delivered;
@@ -43,8 +43,11 @@ END$$
 DELIMITER ;
 
 -- Test the procedure
-CALL sp_mark_order_delivered(8);
-SELECT status FROM orders WHERE order_id = 8; -- should be 'DELIVERED'
+CALL sp_mark_order_delivered(4);
+SELECT o.status as order_status, d.delivery_status as delivery_status, d.delivery_time
+FROM restaurant.orders o
+JOIN restaurant.delivery d ON o.order_id = d.order_id
+WHERE o.order_id = 4; -- should be 'DELIVERED', "DELIVERED" and have the delivery_time set
 
 # Calculate total order price
 DROP FUNCTION IF EXISTS sf_calculate_order_total;
