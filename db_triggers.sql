@@ -57,6 +57,5 @@ VALUES (1, 1, 2, 12.99, 25.98);
 SELECT inventory_item_id, name, current_quantity FROM restaurant.inventory LIMIT 5;
 
 
-DROP DATABASE IF EXISTS restaurant;
 
 SELECT * FROM restaurant.orders;
