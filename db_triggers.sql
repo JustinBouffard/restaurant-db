@@ -55,7 +55,3 @@ VALUES (1, 1, 2, 12.99, 25.98);
 
 -- Check inventory again to see if it was decremented
 SELECT inventory_item_id, name, current_quantity FROM restaurant.inventory LIMIT 5;
-
-
-
-SELECT * FROM restaurant.orders;
