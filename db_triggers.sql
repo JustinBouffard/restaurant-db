@@ -25,7 +25,7 @@ DELIMITER ;
 -- Attempt to delete a menu item that is part of an active order
 -- Should not work and will cause an error
 DELETE FROM restaurant.menu 
-WHERE name = 'Caesar Salad';
+WHERE name = 'Ribeye Steak';
 
 -- Automatically update inventory when an item is ordered
 DROP TRIGGER IF EXISTS update_inventory_on_order;
